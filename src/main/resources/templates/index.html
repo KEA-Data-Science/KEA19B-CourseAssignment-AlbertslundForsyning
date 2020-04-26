@@ -1,18 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Roskilde Forsyning</title>
+<p lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Roskilde Forsyning</title>
 
-    <link rel="stylesheet" type="text/css" href="/stylesheet/index.css" th:href="@{/stylesheet/index.css}"/>
+        <!--        <link rel="stylesheet" type="text/css" href="/stylesheet/index.css" th:href="@{/stylesheet/index.css}"/>-->
+<!--        <link rel="stylesheet" type="text/css" href="/stylesheet/imports.css" th:href="@{/stylesheet/imports.css}">-->
+<!--        <script th:src="@{/js/jquery-1.9.1.min.js}"></script>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-</head>
-<body>
+    </head>
+<p>
 <h1>Dette er <i>landing page</i> for Projekt Albertslund Fjernvarme.</h1>
 <p>Banan brødre</p>
 <a href="/fjernvarme/driftstatus">- Drift stats</a>
 <a href="/fjernvarme/taoordningen">- TAO ordning</a>
 <a href="/fjernvarme/energibesparelser">- Energibesparelser</a>
 <img th:src="@{/images/hero.png}" alt="Our hero is you!"/>
+<p></p>
+
+
+
+<div class="container">
+<h2><p>Liste over abonnenter i databasen:</p></h2>
+
+    <tr th:each="subscriber: ${subscribers}">
+        <div th:with="SubscriberID=${subscriber.id}">
+        <button type="button" class="btn btn-info" data-toggle="collapse" th:data-target="'#' + ${SubscriberID}" th:text="${subscriber.name}"></button>
+        <div th:id="${SubscriberID}" class="collapse">
+            <p><b>Abonnent ID: </b>
+            <td th:text="${subscriber.id}"/>
+            </p>
+            <p><b>Navn: </b>
+            <td th:text="${subscriber.name}"/>
+            </p>
+            <p><b>Adresse: </b>
+            <td th:text="${subscriber.address}"/>
+            </p>
+            <p><b>Email: </b>
+            <td th:text="${subscriber.email}"/>
+            </p>
+            <p><b>Telefonnummer: </b>
+            <td th:text="${subscriber.phonen}"/>
+            </p>
+            <p><b>Kommentar: </b><i>
+                <td th:text="${subscriber.comment}"/>
+            </i>
+            </p>
+        </div>
+        </div>
+    </tr>
+
+</div>
+
 </body>
 </html>
