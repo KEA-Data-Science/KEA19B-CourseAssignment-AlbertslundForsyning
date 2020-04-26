@@ -9,6 +9,5 @@ A reproduction of three scraped pages from Albertslund Electricity Provider;
 the task was to create a select 3-page subset of the full website, potentially recreating
 server-involving activity using the Spring Framework, Thymeleaf and other web technologies.
 <p></p><p>
-A proper introduction to the project in regards to the context and planning of the project,
- is found on the landing page of the functional project (- ideally, I haven't added the content yet,
- but a man can dream).</p>
+
+<p>To be able to run the project you need to create an appropriate database and set your information in application.properties </p>
